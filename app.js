@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const { version } = require('./package.json')
 
-// get the port from env variable
 const PORT = process.env.PORT || 3000
 
 app.get('/version', (req, res) => {
