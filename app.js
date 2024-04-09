@@ -6,9 +6,10 @@ const { version } = require('./package.json')
 const PORT = process.env.PORT || 3000
 
 app.get('/version', (req, res) => {
-  res.send(version) // change this string to ensure a new version deployed
+  res.send(version)
 })
 
+// Endpoint to determine if app should be deployed. If we can't reach the server, workflow will fail and app will not deploy.
 app.get('/health', (req, res) => {
   res.send('ok')
 })
