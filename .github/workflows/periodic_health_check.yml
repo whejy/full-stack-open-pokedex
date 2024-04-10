@@ -11,7 +11,7 @@ jobs:
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v4
         with:
-          url: https://full-stack-open-pokedex-jw.fly.dev
+          url: https://full-stack-open-pokedex-jw.fly.dev/periodic
           follow-redirect: false # Optional, defaults to "false"
           max-attempts: 3 # Optional, defaults to 1
           retry-delay: 5s # Optional, only applicable to max-attempts > 1
