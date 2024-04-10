@@ -13,6 +13,11 @@ app.get('/health', (req, res) => {
   res.send('ok')
 })
 
+// eslint-disable-next-line no-unused-vars
+app.get('/periodic', (req, res) => {
+  throw new Error('Simulated error')
+})
+
 app.use(express.static('dist'))
 
 app.listen(PORT, () => {
