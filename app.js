@@ -13,8 +13,6 @@ app.get('/health', (req, res) => {
   res.send('ok')
 })
 
-// ADDING A COMMENT
-
 app.use(express.static('dist'))
 
 app.listen(PORT, () => {
