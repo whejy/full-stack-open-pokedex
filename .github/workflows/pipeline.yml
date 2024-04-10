@@ -46,9 +46,10 @@ jobs:
     needs: simple_deployment_pipeline
     runs-on: ubuntu-20.04
     steps:
+      - uses: actions/checkout@v4
       - name: Test Success
+        if: ${{ github.event_name == 'push' && !contains(toJSON(github.event.commits.*.message), 'skip') && success() }}
         uses: rjstone/discord-webhook-notify@v1
-        if: success()
         with:
             severity: info
             details: Test Succeeded!
@@ -56,7 +57,7 @@ jobs:
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Test Failure
         uses: rjstone/discord-webhook-notify@v1
-        if: failure()
+        if: ${{ github.event_name == 'push' && !contains(toJSON(github.event.commits.*.message), 'skip') && success() }}
         with:
             severity: error
             details: Test Failed!
